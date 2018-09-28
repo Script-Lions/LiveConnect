@@ -6,6 +6,10 @@ body {
   font-family: 'Shadows Into Light', cursive;
 }
 
+a {
+  text-decoration: none;
+}
+
 .container {
   position: relative;
   border: 1px solid #f2efe2;
