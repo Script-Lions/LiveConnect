@@ -16,7 +16,7 @@ class App {
     this.watchRecognition();
     this.cachedWeather = false;
   }
-  
+
   appendParagraph() {
     this.container.appendChild(this.paragraph);
   }
@@ -25,18 +25,18 @@ class App {
     if(typeof speechSynthesis === 'undefined') {
       return;
     }
-    
+
     this.voices = speechSynthesis.getVoices();
     let i;
-  
+
     for(i = 0; i < this.voices.length ; i++) {
       let option = document.createElement('option');
       option.textContent = this.voices[i].name + ' (' + this.voices[i].lang + ')';
-      
+
       if(this.voices[i].default) {
         option.textContent += ' -- DEFAULT';
       }
-  
+
       option.setAttribute('data-lang', this.voices[i].lang);
       option.setAttribute('data-name', this.voices[i].name);
       document.getElementById("voiceSelect").appendChild(option);
@@ -66,7 +66,7 @@ class App {
       this.listening = true;
       console.log('Speech recognition service has started');
     };
-    
+
     this.recognition.onend = function() {
       console.log('Speech recognition service disconnected');
     };
@@ -80,9 +80,9 @@ class App {
       .map(result => result[0])
       .map(result => result.transcript)
       .join('');
-      
+
       this.paragraph.textContent = speechToText;
-  
+
       if (event.results[0].isFinal) {
         this.container.scrollTo(0, this.container.scrollHeight);
         this.paragraph = document.createElement('p');
@@ -151,7 +151,7 @@ class App {
 
   getWeather(speech) {
     self = this;
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${speech.split(' ')[5]}&appid=6aa90859f3e957ff6c77ec9b1bc86296&units=metric`
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${speech.split(' ')[5]}&appid=6aa90859f3e957ff6c77ec9b1bc86296&units=metric`
     if ('caches' in window) {
       /*
        * Check if the service worker has already cached this city's weather
@@ -209,4 +209,3 @@ if ('serviceWorker' in navigator) {
            .register('./service-worker.js')
            .then(function() { console.log('Service Worker Registered'); });
 }
-
