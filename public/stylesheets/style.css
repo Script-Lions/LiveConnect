@@ -21,7 +21,7 @@ body {
 }
 
 .text-box {
-  max-height: 70vh;
+  max-height: 12vh;
   overflow-y: scroll;
 }
 
@@ -55,7 +55,7 @@ body {
   }
 
   .text-box {
-    max-height: 12vh;
+    max-height: 55vh;
   }
 
   select {
