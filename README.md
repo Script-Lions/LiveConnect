@@ -6,6 +6,6 @@
 ##### 1. run "npm install" from LiveConnect directory
 ##### 1. and then run "npm run start"
 ##### 1. navigate to localhost:[port #], where [port #] is the port specified in the terminal
-##### 1. enjoy! visit us online at https://scriptlions-liveconnect.herokuapp.com/
+##### 1. enjoy! visit us online at https://scriptlions.herokuapp.com/
 #### A multi-use, multi-media, communications application, online.
 ###### All Rights Reserved
