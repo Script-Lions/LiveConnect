@@ -4,7 +4,7 @@
 ### Jaime Orlando Cazares Valdez, Adrian Correa, Brayan Solis, Angel Rosillo
 ##### Installation:
 ##### 1. run "npm install" from LiveConnect directory
-##### 1. and then run "node server.js"
+##### 1. and then run "npm run start"
 ##### 1. navigate to localhost:[port #], where [port #] is the port specified in the terminal
 ##### 1. enjoy! visit us online at https://scriptlions-liveconnect.herokuapp.com/
 #### A multi-use, multi-media, communications application, online.
