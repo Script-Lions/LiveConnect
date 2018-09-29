@@ -119,7 +119,15 @@ class App {
       this.speak(this.getDate);
     };
 
+    if (speech.includes('today\'s date')) {
+      this.speak(this.getDate);
+    };
+
     if (speech.includes('what is the weather in')) {
+      this.getWeather(speech);
+    };
+
+    if (speech.includes('weather in')) {
       this.getWeather(speech);
     };
 
