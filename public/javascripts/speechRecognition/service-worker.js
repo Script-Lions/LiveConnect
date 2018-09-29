@@ -2,13 +2,13 @@ var dataCacheName = 'weatherData-v1';
 let cacheName = 'liveconnect';
 let filesToCache = [
   '/',
-  '../index.html',
+  '../../index.html',
   '/main.js',
-  '../stylesheets/style.css',
-  '../images/blek pentha.png',
-  '../audio/chime.mp3',
-  '../images/mic-icon.png'
-  '../images/favicon.ico'
+  '../../stylesheets/speechRecognition/style.css',
+  '../../images/speechRecognition/blek pentha.png',
+  '../../audio/speechRecognition/chime.mp3',
+  '../../images/speechRecognition/mic-icon.png'
+  '../../images/speechRecognition/favicon.ico'
 ];
 
 self.addEventListener('install', function(event) {
