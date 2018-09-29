@@ -115,6 +115,10 @@ class App {
       this.speak(this.getTime);
     };
 
+    if (speech.includes('what time is it')) {
+      this.speak(this.getTime);
+    };
+
     if (speech.includes('what is today\'s date')) {
       this.speak(this.getDate);
     };
@@ -129,6 +133,14 @@ class App {
 
     if (speech.includes('weather in')) {
       this.getWeather(speech);
+    };
+
+    if (speech.includes('what is your name')) {
+      this.speak(this.getMyName);
+    };
+
+    if (speech.includes('what are you called')) {
+      this.speak(this.getMyName);
     };
 
     if (speech.includes('open a url')) {
@@ -150,6 +162,10 @@ class App {
   getTime() {
     const time = new Date(Date.now());
     return `the time is ${time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}`
+  }
+
+  getMyName() {
+    return `my name is Rinoa`;
   }
 
   getDate() {
