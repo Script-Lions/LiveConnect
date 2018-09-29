@@ -143,7 +143,15 @@ class App {
       this.speak(this.getMyName);
     };
 
-    if (speech.includes('open a url')) {
+    if (speech.includes('who are you')) {
+      this.speak(this.getMyName0);
+    };
+
+    if (speech.includes('what are you')) {
+      this.speak(this.getMyName0);
+    };
+
+    if (speech.includes('open a website')) {
       const utterThis = new SpeechSynthesisUtterance('what URL do you want to open?');
       this.setVoice(utterThis);
       this.synth.speak(utterThis);
@@ -152,6 +160,20 @@ class App {
       this.question = true;
       return;
     };
+
+     // || 'open the website'|| 'open their website' || 'open my website'
+
+    if (speech.includes('open a webpage')) {
+      const utterThis = new SpeechSynthesisUtterance('what URL do you want to open?');
+      this.setVoice(utterThis);
+      this.synth.speak(utterThis);
+      this.recognition.abort();
+      this.recognition.stop();
+      this.question = true;
+      return;
+    };
+
+     // || 'open the webpage'|| 'open their webpage' || 'open my webpage'
 
     if (speech.includes('open') && this.question) {
       this.openUrl(speech.split(' ')[1]);
@@ -162,6 +184,10 @@ class App {
   getTime() {
     const time = new Date(Date.now());
     return `the time is ${time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}`
+  }
+
+  getMyName0() {
+    return `I am a speech recognition algorithm, and my name is Rinoa`;
   }
 
   getMyName() {
