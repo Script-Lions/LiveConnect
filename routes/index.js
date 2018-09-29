@@ -11,5 +11,5 @@ router.get('/', function(req, res, next) {
 
 module.exports = router;
 
-ReactDOM.render( <Root /> , document.getElementById('root'));
-registerServiceWorker();
+// ReactDOM.render( <Root /> , document.getElementById('root'));
+// registerServiceWorker();
