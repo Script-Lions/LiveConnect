@@ -161,6 +161,16 @@ class App {
       return;
     };
 
+    if (speech.includes('open the website')) {
+      const utterThis = new SpeechSynthesisUtterance('what URL do you want to open?');
+      this.setVoice(utterThis);
+      this.synth.speak(utterThis);
+      this.recognition.abort();
+      this.recognition.stop();
+      this.question = true;
+      return;
+    };
+
      // || 'open the website'|| 'open their website' || 'open my website'
 
     if (speech.includes('open a webpage')) {
@@ -173,10 +183,45 @@ class App {
       return;
     };
 
+    if (speech.includes('open the webpage')) {
+      const utterThis = new SpeechSynthesisUtterance('what URL do you want to open?');
+      this.setVoice(utterThis);
+      this.synth.speak(utterThis);
+      this.recognition.abort();
+      this.recognition.stop();
+      this.question = true;
+      return;
+    };
+
      // || 'open the webpage'|| 'open their webpage' || 'open my webpage'
 
     if (speech.includes('open') && this.question) {
-      this.openUrl(speech.split(' ')[1]);
+      // this.openUrl(speech.split(' ')[1]);
+
+      // var speech0 = speech.split(' ');
+      // var speech1 = speech0.slice(1);
+      // var speech2 = speech1.split('');
+      // console.log(speech2);
+
+      var speech0 = speech.split('').slice(5);
+      var speech1 = speech0.join('');
+      var speech2 = speech1.split(' ');
+      var speech3 = speech2.join('');
+      console.log(speech3);
+      this.openUrl(speech3);
+
+      // var speechReduce = function (speech0) {
+      //   var speech1 = '';
+      //   var speech2 = '';
+      //   for (var char in speech0) {
+      //     speech2.concat(char);
+      //   }
+      //   console.log(speech2);
+      //   this.openUrl(speech2);
+      // }
+
+      // this.openUrl(speech2);
+
       this.question = false;
     };
   }
