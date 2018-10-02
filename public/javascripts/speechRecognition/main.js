@@ -15,6 +15,11 @@ class App {
     this.handleMicIconClick();
     this.watchRecognition();
     this.cachedWeather = false;
+
+    this.pitch = document.querySelector('#pitch');
+    this.pitchValue = document.querySelector('.pitch-value');
+    this.rate = document.querySelector('#rate');
+    this.rateValue = document.querySelector('.rate-value');
   }
 
   appendParagraph() {
@@ -40,6 +45,12 @@ class App {
       option.setAttribute('data-lang', this.voices[i].lang);
       option.setAttribute('data-name', this.voices[i].name);
       document.getElementById("voiceSelect").appendChild(option);
+
+      // if(this.voices[i].name !== 'Google UK English Male') {
+      //   option.setAttribute('data-lang', this.voices[i].lang);
+      //   option.setAttribute('data-name', this.voices[i].name);
+      //   document.getElementById("voiceSelect").appendChild(option);
+      // }
     }
   }
 
@@ -94,12 +105,6 @@ class App {
     // this.recognition.onend = this.recognition.start
   }
 
-  speak(action) {
-    const utterThis = new SpeechSynthesisUtterance(action());
-    this.setVoice(utterThis);
-    this.synth.speak(utterThis);
-  }
-
   setVoice(utterThis) {
     const selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
     let i;
@@ -108,6 +113,14 @@ class App {
         utterThis.voice = this.voices[i];
       }
     }
+  }
+
+  speak(action) {
+    const utterThis = new SpeechSynthesisUtterance(action());
+    utterThis.pitch = this.pitch.value;
+    utterThis.rate = this.rate.value;
+    this.setVoice(utterThis);
+    this.synth.speak(utterThis);
   }
 
   handleRequest(speech) {

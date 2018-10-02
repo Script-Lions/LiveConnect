@@ -10,15 +10,19 @@ a {
   text-decoration: none;
 }
 
+.d474designs {
+  margin-bottom: 1vw;
+}
+
 .container {
   position: relative;
   border: 1px solid #f2efe2;
-  width: 40vw;
-  max-width: 60vw;
+  width: 95%;
+  max-width: 95%;
   margin: 0 auto;
   border-radius: 0.1rem;
   background: #f2efe2;
-  padding: 0.2rem 1rem;
+  /* padding: 0.2rem 1rem; */
   color: #1e2440;
   overflow: hidden;
   margin-top: 10vh;
@@ -54,8 +58,8 @@ a {
 
 @media (max-width: 768px) {
   .container {
-    width: 85vw;
-    max-width: 85vw;
+    width: 95%;
+    max-width: 95%;
   }
 
   .text-box {
@@ -95,4 +99,25 @@ select {
 
 select:focus, select:active {
   outline: none;
+}
+
+.clearfix {
+  clear: both;
+}
+
+label {
+  float: left;
+  width: 10%;
+  line-height: 1.5;
+}
+
+.rate-value, .pitch-value {
+  float: none;
+  width: 5%;
+  line-height: 1.5;
+}
+
+#rate, #pitch {
+  float: none;
+  width: 81%;
 }
