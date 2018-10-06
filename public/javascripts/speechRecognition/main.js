@@ -52,6 +52,7 @@ class App {
       //   document.getElementById("voiceSelect").appendChild(option);
       // }
     }
+    // voiceSelect.selectedIndex = selectedIndex;
   }
 
   initializeVoicePopulation() {
@@ -106,7 +107,7 @@ class App {
   }
 
   setVoice(utterThis) {
-    const selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
+    var selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
     let i;
     for(i = 0; i < this.voices.length ; i++) {
       if(this.voices[i].name === selectedOption) {
