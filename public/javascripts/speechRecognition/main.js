@@ -22,6 +22,14 @@ class App {
     this.rateValue = document.querySelector('.rate-value');
   }
 
+  // this.pitch.onchange = function() {
+  //   this.pitchValue.textContent = this.pitch.value;
+  // }
+  //
+  // this.rate.onchange = function() {
+  //   this.rateValue.textContent = this.rate.value;
+  // }
+
   appendParagraph() {
     this.container.appendChild(this.paragraph);
   }
@@ -108,8 +116,7 @@ class App {
 
   setVoice(utterThis) {
     var selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
-    let i;
-    for(i = 0; i < this.voices.length ; i++) {
+    for(var i = 0; i < this.voices.length ; i++) {
       if(this.voices[i].name === selectedOption) {
         utterThis.voice = this.voices[i];
       }
@@ -117,7 +124,7 @@ class App {
   }
 
   speak(action) {
-    const utterThis = new SpeechSynthesisUtterance(action());
+    var utterThis = new SpeechSynthesisUtterance(action());
     utterThis.pitch = this.pitch.value;
     utterThis.rate = this.rate.value;
     this.setVoice(utterThis);
@@ -127,71 +134,71 @@ class App {
   handleRequest(speech) {
     if (speech === 'commands') {
       this.speak(this.commands);
-    };
+    }
 
     if (speech === 'command') {
       this.speak(this.commands);
-    };
+    }
 
     if (speech === 'Rinoa') {
       this.speak(this.hello);
-    };
+    }
 
-    // if (speech === 'hi') {
-    //   this.speak(this.hello);
-    // };
-    //
-    // if (speech === 'hello') {
-    //   this.speak(this.hello);
-    // };
+    if (speech === 'hi') {
+      this.speak(this.hello);
+    }
+
+    if (speech === 'hello') {
+      this.speak(this.hello);
+    }
 
     if (speech.includes('what is the time')) {
       this.speak(this.getTime);
-    };
+    }
 
     if (speech.includes('what time is it')) {
       this.speak(this.getTime);
-    };
+    }
 
     if (speech.includes('what is today\'s date')) {
       this.speak(this.getDate);
-    };
+    }
 
     if (speech.includes('today\'s date')) {
       this.speak(this.getDate);
-    };
+    }
 
     if (speech === 'weather') {
       this.speak(this.getWeatherQuestion);
-    };
+    }
 
     if (speech === 'what is the weather') {
       this.speak(this.getWeatherQuestion0);
-    };
+    }
 
     if (speech.startsWith('weather in')) {
       this.getWeather(speech);
-    };
+    }
 
     if (speech.includes('what is the weather in')) {
       this.getWeather0(speech);
-    };
+    }
 
     if (speech.includes('what is your name')) {
       this.speak(this.getMyName);
-    };
+    }
 
     if (speech.includes('what are you called')) {
       this.speak(this.getMyName);
-    };
+    }
 
     if (speech.includes('who are you')) {
       this.speak(this.getMyName0);
-    };
+    }
 
     if (speech.includes('what are you')) {
       this.speak(this.getMyName0);
-    };
+    }
 
     if (speech.includes('open a website')) {
       const utterThis = new SpeechSynthesisUtterance('what URL do you want to open?');
@@ -201,7 +208,7 @@ class App {
       this.recognition.stop();
       this.question = true;
       return;
-    };
+    }
 
     if (speech.includes('open the website')) {
       const utterThis = new SpeechSynthesisUtterance('what URL do you want to open?');
@@ -211,7 +218,7 @@ class App {
       this.recognition.stop();
       this.question = true;
       return;
-    };
+    }
 
      // || 'open the website'|| 'open their website' || 'open my website'
 
@@ -223,7 +230,7 @@ class App {
       this.recognition.stop();
       this.question = true;
       return;
-    };
+    }
 
     if (speech.includes('open the webpage')) {
       const utterThis = new SpeechSynthesisUtterance('what URL do you want to open?');
@@ -233,7 +240,7 @@ class App {
       this.recognition.stop();
       this.question = true;
       return;
-    };
+    }
 
      // || 'open the webpage'|| 'open their webpage' || 'open my webpage'
 
@@ -265,8 +272,8 @@ class App {
       // this.openUrl(speech2);
 
       this.question = false;
-    } else {
-      this.speak(this.hello);
+    // } else {
+    //   this.speak(this.hello);
     };
   }
 
