@@ -168,12 +168,12 @@ class App {
       this.speak(this.getWeatherQuestion0);
     };
 
-    if (speech.includes('what is the weather in')) {
+    if (speech.startsWith('weather in')) {
       this.getWeather(speech);
     };
 
-    if (speech.includes('weather in')) {
-      this.getWeather(speech);
+    if (speech.includes('what is the weather in')) {
+      this.getWeather0(speech);
     };
 
     if (speech.includes('what is your name')) {
@@ -302,6 +302,53 @@ class App {
   }
 
   getWeather(speech) {
+    self = this;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${speech.split(' ')[2]}&appid=6aa90859f3e957ff6c77ec9b1bc86296&units=metric`
+    if ('caches' in window) {
+      /*
+       * Check if the service worker has already cached this city's weather
+       * data. If the service worker has the data, then display the cached
+       * data while the app fetches the latest data.
+       */
+      caches.match(url).then(function(response) {
+        if (response) {
+          self.cachedWeather = true;
+          response.json().then(function updateFromCache(json) {
+            if (json.cod === '404') {
+              const utterThis = new SpeechSynthesisUtterance(`I cannot find the weather for ${speech.split(' ')[2]}`);
+              self.setVoice(utterThis);
+              self.synth.speak(utterThis);
+              return;
+            }
+            const utterThis = new SpeechSynthesisUtterance(`the weather condition in ${json.name} is mostly full of
+            ${json.weather[0].description} at a temperature of ${json.main.temp} degrees Celcius`);
+            self.setVoice(utterThis);
+            self.synth.speak(utterThis);
+          });
+        }
+      });
+    }
+    fetch(url)
+    .then(function(response){
+      return response.json();
+    }).then(function(weather){
+      if (self.cachedWeather) {
+        return;
+      }
+      if (weather.cod === '404') {
+        const utterThis = new SpeechSynthesisUtterance(`I cannot find the weather for ${speech.split(' ')[2]}`);
+        self.setVoice(utterThis);
+        self.synth.speak(utterThis);
+        return;
+      }
+      const utterThis = new SpeechSynthesisUtterance(`the weather condition in ${weather.name} is mostly full of
+      ${weather.weather[0].description} at a temperature of ${weather.main.temp} degrees Celcius`);
+      self.setVoice(utterThis);
+      self.synth.speak(utterThis);
+    });
+  }
+
+  getWeather0(speech) {
     self = this;
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${speech.split(' ')[5]}&appid=6aa90859f3e957ff6c77ec9b1bc86296&units=metric`
     if ('caches' in window) {
