@@ -124,6 +124,26 @@ class App {
   }
 
   handleRequest(speech) {
+    if (speech === 'commands') {
+      this.speak(this.commands);
+    };
+
+    if (speech === 'command') {
+      this.speak(this.commands);
+    };
+
+    if (speech === 'Rinoa') {
+      this.speak(this.hello);
+    };
+
+    if (speech === 'hi') {
+      this.speak(this.hello);
+    };
+
+    if (speech === 'hello') {
+      this.speak(this.hello);
+    };
+
     if (speech.includes('what is the time')) {
       this.speak(this.getTime);
     };
@@ -138,6 +158,14 @@ class App {
 
     if (speech.includes('today\'s date')) {
       this.speak(this.getDate);
+    };
+
+    if (speech === 'weather') {
+      this.speak(this.getWeatherQuestion);
+    };
+
+    if (speech === 'what is the weather') {
+      this.speak(this.getWeatherQuestion0);
     };
 
     if (speech.includes('what is the weather in')) {
@@ -239,6 +267,14 @@ class App {
     };
   }
 
+  hello() {
+    return `Hi. How can I help you? For a list of commands say, commands.`
+  }
+
+  commands() {
+    return `I can tell you the weather, the time, or even open a website for you.`
+  }
+
   getTime() {
     const time = new Date(Date.now());
     return `the time is ${time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}`
@@ -255,6 +291,14 @@ class App {
   getDate() {
     const time = new Date(Date.now())
     return `today is ${time.toLocaleDateString()}`;
+  }
+
+  getWeatherQuestion() {
+    return `If you want the weather, please specify from what city`;
+  }
+
+  getWeatherQuestion0() {
+    return `Please specify from what city`;
   }
 
   getWeather(speech) {
