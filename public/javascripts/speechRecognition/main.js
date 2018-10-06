@@ -136,13 +136,13 @@ class App {
       this.speak(this.hello);
     };
 
-    if (speech === 'hi') {
-      this.speak(this.hello);
-    };
-
-    if (speech === 'hello') {
-      this.speak(this.hello);
-    };
+    // if (speech === 'hi') {
+    //   this.speak(this.hello);
+    // };
+    //
+    // if (speech === 'hello') {
+    //   this.speak(this.hello);
+    // };
 
     if (speech.includes('what is the time')) {
       this.speak(this.getTime);
@@ -264,6 +264,8 @@ class App {
       // this.openUrl(speech2);
 
       this.question = false;
+    } else {
+      this.speak(this.hello);
     };
   }
 
