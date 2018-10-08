@@ -9,6 +9,7 @@ class App {
     this.sound = document.querySelector('.sound');
     this.listening = false;
     this.question = false;
+    // this.close = false;
     this.appendParagraph();
     this.voices = [];
     this.initializeVoicePopulation();
@@ -204,6 +205,18 @@ class App {
       this.speak(this.getMyName0);
     }
 
+    // if (speech.includes('exit live connect')) {
+    //   this.speak(this.close0);
+    //   this.close = true;
+    //   return;
+    // }
+    //
+    // if (speech.includes('exit life connect')) {
+    //   this.speak(this.close0);
+    //   this.close = true;
+    //   return;
+    // }
+
     if (speech.includes('open a website')) {
       const utterThis = new SpeechSynthesisUtterance('what URL do you want to open?');
       this.setVoice(utterThis);
@@ -279,14 +292,24 @@ class App {
     // } else {
     //   this.speak(this.hello);
     };
+
+    // if (speech.includes('yes') && this.close) {
+    //   window.close();
+    //   alert('hello');
+    // };
   }
+
+  // close0() {
+  //   return `Are you sure?`;
+  // }
 
   hello() {
     return `Hi. How can I help you? For a list of commands say, commands.`
   }
 
   commands() {
-    return `I can tell you the weather, the time, or even open a website for you.`
+    return `I can tell you the weather, the time, or even open a website for you. To exit, say, exit live connect.`
+    // return `I can tell you the weather, the time, or even open a website for you. To exit, say, exit live connect.`
   }
 
   getTime() {
