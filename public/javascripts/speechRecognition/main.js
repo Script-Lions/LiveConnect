@@ -152,6 +152,10 @@ class App {
       this.speak(this.hello);
     }
 
+    if (speech === 'what\'s up') {
+      this.speak(this.hello);
+    }
+
     if (speech.includes('what is the time')) {
       this.speak(this.getTime);
     }
