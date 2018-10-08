@@ -19,6 +19,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// // Set public folder as root
+// app.use(express.static('public'));
+
+// Provide access to node_modules folder
+app.use('/scripts', express.static(`${__dirname}/node_modules/`));
+
+// // Redirect all traffic to index.html
+// app.use((req, res) => res.sendFile(`${__dirname}/public/index.html`));
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
