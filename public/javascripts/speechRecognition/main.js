@@ -239,7 +239,7 @@ const getTheWeatherQuestion0 = () => {
 }
 
 const getTheWeather = (speech) => {
-  fetch(`http://api.openweathermap.org/data/2.5/weather?q=${speech.split(' ')[2]}&appid=6aa90859f3e957ff6c77ec9b1bc86296&units=metric`)
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${speech.split(' ')[2]}&appid=6aa90859f3e957ff6c77ec9b1bc86296&units=metric`)
   .then(function(response){
     return response.json();
   }).then(function(weather){
@@ -261,7 +261,7 @@ const getTheWeather = (speech) => {
 };
 
 const getTheWeather0 = (speech) => {
-  fetch(`http://api.openweathermap.org/data/2.5/weather?q=${speech.split(' ')[5]}&appid=6aa90859f3e957ff6c77ec9b1bc86296&units=metric`)
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${speech.split(' ')[5]}&appid=6aa90859f3e957ff6c77ec9b1bc86296&units=metric`)
   .then(function(response){
     return response.json();
   }).then(function(weather){
@@ -291,7 +291,7 @@ const speak = (action) => {
 };
 
 const openUrl = (url) => {
-  window.open(`http://${url}`,'_newtab');
+  window.open(`https://${url}`,'_newtab');
 };
 
 const stripUrl = (str) =>  {
