@@ -61,16 +61,17 @@ window.addEventListener('load', () => {
     remoteVideosCount += 1;
   });
 
-//Adding video Remove function
+//this code removes remote video when user leaves
   webrtc.on('videoRemoved', (video, peer) => {
     // eslint-disable-next-line no-console
     const id = webrtc.removeDomId(peer);
     const html = remoteVideoTemplate({ id });
-    if (remoteVideosCount >= 1) {
+    if (remoteVideosCount >= 0) {
       remoteVideosEl.html(html);
     } else {
       remoteVideosEl.append(html);
     }
+
     remoteVideosCount -= 1;
   });
 
