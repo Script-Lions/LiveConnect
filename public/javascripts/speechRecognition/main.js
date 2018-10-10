@@ -76,6 +76,10 @@ const dictate = () => {
         speak(getTime);
       }
 
+      if (speechToText.includes('what\'s the time')) {
+        speak(getTime);
+      }
+
       if (speechToText.includes('what time is it')) {
         speak(getTime);
       }
