@@ -120,6 +120,10 @@ const dictate = () => {
         speak(getMyName);
       }
 
+      if (speechToText.includes('what\'s your name')) {
+        speak(getMyName);
+      }
+
       if (speechToText.includes('what are you called')) {
         speak(getMyName);
       }
