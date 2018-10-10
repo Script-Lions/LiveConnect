@@ -230,11 +230,11 @@ const getDate = () => {
   return `today is ${time.toLocaleDateString()}`;
 };
 
-const getWeatherQuestion = () => {
+const getTheWeatherQuestion = () => {
   return `If you want the weather, please specify from what city`;
 }
 
-const getWeatherQuestion0 = () => {
+const getTheWeatherQuestion0 = () => {
   return `Please specify from what city`;
 }
 
