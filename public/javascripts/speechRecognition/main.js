@@ -76,6 +76,10 @@ const dictate = () => {
         speak(getTime);
       }
 
+      if (speechToText.includes('what\'s the time')) {
+        speak(getTime);
+      }
+
       if (speechToText.includes('what time is it')) {
         speak(getTime);
       }
@@ -230,16 +234,16 @@ const getDate = () => {
   return `today is ${time.toLocaleDateString()}`;
 };
 
-const getWeatherQuestion = () => {
+const getTheWeatherQuestion = () => {
   return `If you want the weather, please specify from what city`;
 }
 
-const getWeatherQuestion0 = () => {
+const getTheWeatherQuestion0 = () => {
   return `Please specify from what city`;
 }
 
 const getTheWeather = (speech) => {
-  fetch(`http://api.openweathermap.org/data/2.5/weather?q=${speech.split(' ')[2]}&appid=6aa90859f3e957ff6c77ec9b1bc86296&units=metric`)
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${speech.split(' ')[2]}&appid=6aa90859f3e957ff6c77ec9b1bc86296&units=metric`)
   .then(function(response){
     return response.json();
   }).then(function(weather){
@@ -261,7 +265,7 @@ const getTheWeather = (speech) => {
 };
 
 const getTheWeather0 = (speech) => {
-  fetch(`http://api.openweathermap.org/data/2.5/weather?q=${speech.split(' ')[5]}&appid=6aa90859f3e957ff6c77ec9b1bc86296&units=metric`)
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${speech.split(' ')[5]}&appid=6aa90859f3e957ff6c77ec9b1bc86296&units=metric`)
   .then(function(response){
     return response.json();
   }).then(function(weather){
@@ -291,7 +295,7 @@ const speak = (action) => {
 };
 
 const openUrl = (url) => {
-  window.open(`http://${url}`,'_newtab');
+  window.open(`https://${url}`,'_newtab');
 };
 
 const stripUrl = (str) =>  {
