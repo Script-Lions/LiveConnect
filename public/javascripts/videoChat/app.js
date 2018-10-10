@@ -61,6 +61,20 @@ window.addEventListener('load', () => {
     remoteVideosCount += 1;
   });
 
+//this code removes remote video when user leaves
+  webrtc.on('videoRemoved', (video, peer) => {
+    // eslint-disable-next-line no-console
+    const id = webrtc.removeDomId(peer);
+    const html = remoteVideoTemplate({ id });
+    if (remoteVideosCount >= 0) {
+      remoteVideosEl.html(html);
+    } else {
+      remoteVideosEl.append(html);
+    }
+
+    remoteVideosCount -= 1;
+  });
+
   // Update Chat Messages
   const updateChatMessages = () => {
     const html = chatContentTemplate({ messages });
