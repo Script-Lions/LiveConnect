@@ -61,6 +61,19 @@ window.addEventListener('load', () => {
     remoteVideosCount += 1;
   });
 
+//Adding video Remove function
+  webrtc.on('videoRemoved', (video, peer) => {
+    // eslint-disable-next-line no-console
+    const id = webrtc.removeDomId(peer);
+    const html = remoteVideoTemplate({ id });
+    if (remoteVideosCount >= 1) {
+      remoteVideosEl.html(html);
+    } else {
+      remoteVideosEl.append(html);
+    }
+    remoteVideosCount -= 1;
+  });
+
   // Update Chat Messages
   const updateChatMessages = () => {
     const html = chatContentTemplate({ messages });
