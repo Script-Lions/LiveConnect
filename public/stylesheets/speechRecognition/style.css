@@ -18,7 +18,7 @@ a {
   position: relative;
   border: 1px solid #f2efe2;
   width: 95%;
-  max-width: 95%;
+  max-width: 85%;
   margin: 0 auto;
   border-radius: 0.1rem;
   background: #f2efe2;
@@ -29,7 +29,6 @@ a {
 }
 
 .text-box {
-  border-bottom: 7px dotted #1e2440;
   max-height: 12vh;
   overflow-y: scroll;
 }
