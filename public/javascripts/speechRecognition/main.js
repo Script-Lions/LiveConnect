@@ -120,6 +120,10 @@ const dictate = () => {
         getTheWeather0(speechToText);
       }
 
+      if (speechToText.includes('what\'s the weather in')) {
+        getTheWeather1(speechToText);
+      }
+
       if (speechToText.includes('what is your name')) {
         speak(getMyName);
       }
@@ -271,6 +275,28 @@ const getTheWeather0 = (speech) => {
   }).then(function(weather){
     if (weather.cod === '404') {
       utterThis = new SpeechSynthesisUtterance(`I cannot find the weather for ${speech.split(' ')[5]}`);
+      utterThis.pitch = pitch.value;
+      utterThis.rate = rate.value;
+      setVoice(utterThis);
+      synth.speak(utterThis);
+      return
+    }
+    utterThis = new SpeechSynthesisUtterance(`the weather condition in ${weather.name} is mostly full of
+    ${weather.weather[0].description} at a temperature of ${weather.main.temp} degrees Celcius`);
+    utterThis.pitch = pitch.value;
+    utterThis.rate = rate.value;
+    setVoice(utterThis);
+    synth.speak(utterThis);
+  });
+};
+
+const getTheWeather1 = (speech) => {
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${speech.split(' ')[4]}&appid=6aa90859f3e957ff6c77ec9b1bc86296&units=metric`)
+  .then(function(response){
+    return response.json();
+  }).then(function(weather){
+    if (weather.cod === '404') {
+      utterThis = new SpeechSynthesisUtterance(`I cannot find the weather for ${speech.split(' ')[4]}`);
       utterThis.pitch = pitch.value;
       utterThis.rate = rate.value;
       setVoice(utterThis);
