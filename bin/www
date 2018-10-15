@@ -9,8 +9,6 @@ const path = require("path");
 
 const { mongoose } = require("./Database.js");
 
-
-var
 var app = require('../app');
 var debug = require('debug')('liveconnect:server');
 var http = require('http');

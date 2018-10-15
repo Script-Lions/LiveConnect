@@ -3,13 +3,16 @@ const express = require('express');
 
 const root = express();
 import React, { Component } from 'react';
-import SignIn from './components/signin/SignIn.js';
+import SignIn from './components/signin/SignIn.jsx';
+import register from '/register/register.jsx'
+import Navigation from '/navigation/Navigation.jsx'
 class Root extends Component {
   constructor() {
     super();
     this.state = {
-      route: 'SignIn'
-      }
+      route: 'SignIn',
+      isSignedIn:'false'
+    }
     }
   }
 
@@ -25,17 +28,27 @@ class Root extends Component {
       joined: undefined
     }})
   }
-onRoutechange = () =>{
-  this.setState({route:'home'});
-}
-
+  onRoutechange = (route) => {
+    if(route === 'signout'){
+      this.setState({isSignedIn:false})
+    }else if (route === 'home'){
+      this.setState({isSignedIn: true})
+    }
+    this.setState({route: route });
+  }
   render() {
     const { } = this.state;
     return (
     <div className="root">
-      {this.state.route === 'SignIn'
-        ? <Signin onRoutechange={this.onRoutechange}/>
-    </div>
+       <Navigation onRoutechange={this.onRoutechange} />
+        {this.state.route === 'home'}
+
+        {
+          this.state.route === 'SignIn '
+        ? <SignIn onRoutechange={this.onRoutechange} />
+      :<Register onRoutechange={this.onRoutechange} />
+      }
+      </div>
     );
   }
 }
