@@ -17,6 +17,7 @@ window.addEventListener('load', () => {
   let remoteVideosCount = 0;
 
 
+
   // Hide cameras until they are initialized
   localVideoEl.hide();
 
@@ -91,8 +92,11 @@ window.addEventListener('load', () => {
   // Display Chat Interface
   const showChatRoom = (room) => {
     formEl.hide();
+    var h = localVideoEl.hide();
     const html = chatTemplate({ room });
     chatEl.html(html);
+   const leave = webrtc.leaveRoom();
+
     const postForm = $('form');
     postForm.form({
       message: 'empty',
@@ -107,28 +111,10 @@ window.addEventListener('load', () => {
         postMessage(message);
       }
     });
-    $('#leave-btn').on('click', () => {
-      const disconnect = (roomName) => {
-        // eslint-disable-next-line no-console
-        webrtc.disconnect(roomName);
-      stopScreenShare()
-        disconnect(peer);
 
-
-        //this code removes remote video when user leaves
-          webrtc.on('videoRemoved', (video, peer) => {
-            // eslint-disable-next-line no-console
-            const id = webrtc.removeDomId(peer);
-            const html = remoteVideoTemplate({ id });
-            if (remoteVideosCount >= 0) {
-              remoteVideosEl.html(html);
-            } else {
-              remoteVideosEl.append(html);
-            }
-
-            remoteVideosCount -= 1;
-          });
-       };
+    $('#hangUp').on('click', () => {
+      webrtc.stopLocalVideo();
+      webrtc.leaveRoom();
     });
   };
 
