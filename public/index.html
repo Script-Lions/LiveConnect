@@ -28,20 +28,31 @@
 
       <!-- Video Chat Code -->
       <div class="ui container">
-        <h1 class="ui header">LiveConnect</h1>
-        <hr>
+      </br><h1 class="ui header" style="font-size:3vw">LiveConnect</h1>
+      <hr>
+
         <div class="ui two column stackable grid">
-          <div class="ui ten wide column">
+          <div class="ui eight wide column">
+
+            <!-- Local Camera -->
+            <div class="ui six wide column">
+              <h4 class="ui center aligned header" style="margin:0;">
+                Local Camera
+              </h4>
+              <img id="local-image" class="ui small image" style="border:5px solid limeGreen" src="./images/videoChat/image.png">
+              <video id="local-video" class="ui small image"  autoplay></video>
+            </div>
+
             <div class="ui segment">
 
               <!-- Chat Room Form -->
               <div class="ui form">
                 <div class="fields">
-                  <div class="field">
-                    <label>User Name</label>
+                  <div class="field" style="margin-left: auto; margin-right:auto;">
+                    <label>User</label>
                     <input type="text" placeholder="Enter user name" id="username" name="username">
                   </div>
-                  <div class="field">
+                  <div class="field" style="margin-left: auto; margin-right:auto;">
                     <label>Room</label>
                     <input type="text" placeholder="Enter room name" id="roomName" name="roomName">
                   </div>
@@ -56,33 +67,29 @@
 
               <!-- Chat Room Messages -->
               <div id="chat"></div>
+
             </div>
           </div>
 
-          <!-- Local Camera -->
-          <div class="ui six wide column">
-            <img  id="local-image" class="ui large image" src="./images/videoChat/image.png">
-            <video id="local-video" class="ui large image"  autoplay></video>
-            <h4 class="ui center aligned header" style="margin:0;">
-              Local Camera
-            </h4>
-          </div>
-        </div>
+          <!-- Remote Cameras -->
+          <div class="ui eight wide column">
+            <h4 class="ui center aligned header">Remote Cameras</h4>
+            <div id="remote-videos" class="ui stackable grid">
+                <div class="eight wide column">
+                  <img class="ui centered medium image" style="border:3px solid orange" src="./images/videoChat/image.png">
+                </div>
+                <div class="eight wide column">
+                  <img class="ui centered medium image" style="border:3px solid orange" src="./images/videoChat/image.png">
+                </div>
+                <div class="eight wide column">
+                  <img class="ui centered medium image" style="border:3px solid orange" src="./images/videoChat/image.png">
+                </div>
+                <div class="eight wide column">
+                  <img class="ui centered medium image" style="border:3px solid orange" src="./images/videoChat/image.png">
+                </div>
+              </div>
+              <hr>
 
-        <!-- Remote Cameras -->
-        <h3 class="ui center aligned header">Remote Cameras</h3>
-        <div id="remote-videos" class="ui stackable grid">
-          <div class="four wide column">
-            <img class="ui centered medium image" src="./images/videoChat/image.png">
-          </div>
-          <div class="four wide column">
-            <img class="ui centered medium image" src="./images/videoChat/image.png">
-          </div>
-          <div class="four wide column">
-            <img class="ui centered medium image" src="./images/videoChat/image.png">
-          </div>
-          <div class="four wide column">
-            <img class="ui centered medium image" src="./images/videoChat/image.png">
           </div>
         </div>
       </div>
@@ -172,10 +179,10 @@
       <a href="./reactTest.html"><button>React TEST PAGE</button></a> -->
 
     </center>
-<br>
+    </br>
 
     <!-- Speech Recognition Component -->
-    <div class="container">
+    <div class="ui container" style="border:1px solid orange">
       <center>
         <div class="text-box" contenteditable="false"></div>
         <i class="fa fa-microphone"></i>
@@ -197,7 +204,20 @@
     <audio class="sound" src="./audio/speechRecognition/chime.mp3"></audio>
     <script src="./javascripts/speechRecognition/main.js" async></script>
     <!-- Speech Recognition Component -->
-
   </body>
+
+  <footer>
+    <center>
+      </br>
+      <div class="ui container">
+        <p>LiveConnect is brought to you free of charge;
+        </br>If you would like to help D474media
+        bringing the finest in multi-media content online, please consider donating:
+        </p>
+        <button class="ui submit orange button">Donate</button>
+        <p>All Rights Reserved Copyright 2020</p>
+      <div class="ui container">
+    </center>
+  </footer>
 
 </html>

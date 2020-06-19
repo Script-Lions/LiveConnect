@@ -6,6 +6,10 @@ body {
   font-family: 'Shadows Into Light', cursive;
 }
 
+p {
+  font-size: 13px;
+}
+
 a {
   text-decoration: none;
 }
@@ -14,14 +18,25 @@ a {
   margin-bottom: 1vw;
 }
 
+.button {
+  background-color: limeGreen;
+  border: orange;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
 .container {
   position: relative;
-  border: 1px solid #f2efe2;
+  border: 1px solid limeGreen;
   width: 95%;
   max-width: 95%;
   margin: 0 auto;
   border-radius: 0.1rem;
-  background: #f2efe2;
+  background: white;
   /* padding: 0.2rem 1rem; */
   color: #1e2440;
   overflow: hidden;
