@@ -9,16 +9,18 @@
   "dependencies": {
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
+    "event-stream": "^4.0.1",
     "express": "~4.16.0",
+    "handlebars": "^4.7.6",
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
-    "mongoose": "^5.3.1",
+    "jquery": "^3.5.1",
+    "mongoose": "^5.9.19",
     "morgan": "~1.9.0",
     "react": "^16.5.2",
-    "jquery": "^3.3.1",
-    "handlebars": "^4.0.11",
     "semantic-ui-css": "^2.3.1",
-    "simplewebrtc": "^3.0.1"
+    "simplewebrtc": "^3.0.1",
+    "webrtc-adapter": "^7.6.2"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"
