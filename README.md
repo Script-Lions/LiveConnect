@@ -1,5 +1,4 @@
 # LiveConnect
-[![Waffle.io - Columns and their card count](https://badge.waffle.io/Script-Lions/LiveConnect.svg?columns=all&style=flat-square)](https://waffle.io/Script-Lions/LiveConnect)
 ## Script-Lions
 ### Jaime Orlando Cazares Valdez, Adrian Correa, Brayan Solis, Angel Rosillo
 ##### Installation:
